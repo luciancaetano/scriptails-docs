@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import HomepageFeatures from '../components/HomepageFeatures';
+// import HomepageFeatures from '../components/HomepageFeatures';
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -18,7 +18,7 @@ function HomepageHeader() {
                         className="button button--secondary button--lg"
                         to="/docs/intro"
                     >
-                        Docusaurus Tutorial - 5min ⏱️
+                        Build simple CLIs in minutes ⏱️
                     </Link>
                 </div>
             </div>
@@ -34,7 +34,7 @@ export default function Home() {
         >
             <HomepageHeader />
             <main>
-                <HomepageFeatures />
+                {/* <HomepageFeatures /> */}
             </main>
         </Layout>
     );
