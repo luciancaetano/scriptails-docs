@@ -2,34 +2,55 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Getting started
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Install scriptails using `yarn` or `npm`:
 
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[new.docusaurus.io](https://new.docusaurus.io)**.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**:
 
 ```shell
-npx @docusaurus/init@latest init my-website classic
+yarn add scriptails
+```
+Ou
+```shell
+yarn add scriptails
 ```
 
-## Start your site
+#### Let's start creating our index.js and our first command.
 
-Run the development server:
+```js title="index.js"
+const { start } = require('scriptails');
+
+require('./my-frist.command.js');
+
+
+start(process.argv, {
+    name: 'my-cli',
+    description: 'my cli description',
+    version: '1.0',
+});
+```
+Note: In the 3rd line we import our command file, the scriptails the commands must be **imported before** the **start function**, if you import/require them later it is very likely that you will have problems running it.
+
+Now we will declare our first command within the `my-frist.command.js` file
+
+```js title="my-frist.command.js"
+const { command } = require('scriptails');
+
+command('first', (command) => {
+    command.option(['-D', '--debug'], null, 'Set debug mode', false);
+    command.onAction((ctx) => {
+        const isDebug = action.getOption('debug').toBoolean();
+        if(isDebug) {
+            ctx.log("Debug is On");
+        }
+        ctx.logWithLabel("success", "Hello world, with label");
+    })
+});
+
+```
+
+Finally run your new CLI using:
 
 ```shell
-cd my-website
-
-npx docusaurus start
+node index.js first
 ```
-
-Your site starts at `http://localhost:3000`.
-
-Open `docs/getting-started.md` and edit some lines: the site **reloads automatically** and display your changes.
