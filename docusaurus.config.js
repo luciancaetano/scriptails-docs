@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: 'Scriptails',
-    tagline: 'Dinosaurs are cool',
+    tagline: 'Build simple CLIs in minutes ⏱️',
     url: 'https://your-docusaurus-test-site.com',
     baseUrl: '/',
     onBrokenLinks: 'throw',

@@ -18,7 +18,7 @@ function HomepageHeader() {
                         className="button button--secondary button--lg"
                         to="/docs/intro"
                     >
-                        Build simple CLIs in minutes ⏱️
+                        Getting started
                     </Link>
                 </div>
             </div>
