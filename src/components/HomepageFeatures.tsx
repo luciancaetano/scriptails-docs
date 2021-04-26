@@ -5,44 +5,38 @@ import styles from './HomepageFeatures.module.css';
 const FeatureList = [
     {
         title: 'Easy to Use',
-        Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+        emoji: '✅',
         description: (
             <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+                The design of the scriptails api was build to have a quick, fluid and simple understanding.
             </>
         ),
     },
     {
         title: 'Focus on What Matters',
-        Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+        emoji: '🔎',
         description: (
             <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+                Scriptails allows you to really focus on building your CLIs.
             </>
         ),
     },
     {
-        title: 'Powered by React',
-        Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+        title: 'Ready to go',
+        emoji: '⚡',
         description: (
             <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+                Develop a fully functional CLI to get started quickly.
             </>
         ),
     },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ emoji, title, description }) {
     return (
         <div className={clsx('col col--4')}>
-            <div className="text--center">
-                <Svg className={styles.featureSvg} alt={title} />
-            </div>
             <div className="text--center padding-horiz--md">
-                <h3>{title}</h3>
+                <h3>{emoji} {title}</h3>
                 <p>{description}</p>
             </div>
         </div>
@@ -57,6 +51,32 @@ export default function HomepageFeatures() {
                     {FeatureList.map((props, idx) => (
                         <Feature key={idx} {...props} />
                     ))}
+                </div>
+                <div className="row">
+                    <h3>Simple like writing tests</h3>
+                </div>
+                <div className="row">
+                    <pre className="language-javascript" data-src-status="loaded" tabIndex={0}><code className=" language-css">
+                        {`
+    command('build', (c) => {
+        c.aliases(['b']);
+        c.description('build my android project');
+        c.option(['--debug'], null, 'build debug mode', false);
+
+        c.onAction((ctx) => {
+            const debug = ctx.getOption('debug').toBoolean();
+
+            ctx.logWithLabel('info', "Starting build proccess");
+
+            if(debug) {
+                ctx.childProcess.shellExec('my android build debug command')
+            } else {
+                ctx.childProcess.shellExec('my android build command')
+            }
+        });
+    });
+                        `}
+                    </code></pre>
                 </div>
             </div>
         </section>

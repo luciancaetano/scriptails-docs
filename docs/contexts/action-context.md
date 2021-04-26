@@ -42,8 +42,20 @@ ActionContext will only be available at the time of executing the command itself
 
 ## Action Context members
 
-### getOption
+### getOptions
+**options are converted to camelCase**
+This member get all options/flags
+```ts
+    declare function getOptions(): Object;
 
+    ....
+    c.onAction(async (ctx) => {
+        const options = ctx.getOptions();
+    });
+    ...
+```
+### getOption
+**options are converted to camelCase**
 This member finds and returns current command option.
 ```ts
     declare function getOption(name: string): MixedType;
@@ -201,3 +213,46 @@ Artificially activates silent mode
     });
     ...
 ```
+
+### childProcess.shellExec
+This is a simple helper thats uses child_procces.exec and do some outputs to terminal like errors succes and realtime stdout.
+Note: This helper is very useful when you need to run third-party tools and want to show the user the progress / monitoring of the execution.
+```ts
+    
+    declare interface ShellExecExtendedOptions {
+        log? : {
+            /**
+             * Show stdout on terminal default: true
+             */
+            stdout: boolean;
+            /**
+             * Show stderr on terminal default: true
+             */
+            stderr: boolean;
+            /**
+             * Show in terminal proccess start default: true
+             */
+            start: boolean;
+            /**
+             * Show in terminal process end default: true
+             */
+            end: boolean;
+            /**
+             * Show in terminal error log default: true
+             */
+            error: boolean;
+        } | boolean;
+    }
+
+    declare function  shellExec(command: string, opt?: ShellExecOptions | null);
+
+    ....
+    c.onAction(async (ctx) => {
+        ctx.childProcess.shellExec('ls .');
+    });
+    ...
+```
+### childProcess.execFile
+This is a simple helper thats uses child_procces.exec and do some outputs to terminal like errors succes and realtime stdout.
+
+** similar to childProcess.shellExec **
