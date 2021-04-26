@@ -215,7 +215,7 @@ Artificially activates silent mode
 ```
 
 ### childProcess.shellExec
-This is a simple helper thats uses child_procces.exec and do some outputs to terminal like errors succes and realtime stdout.
+This is a simple helper thats uses child_process.exec and do some outputs to terminal like errors succes and realtime stdout.
 Note: This helper is very useful when you need to run third-party tools and want to show the user the progress / monitoring of the execution.
 ```ts
     
@@ -253,6 +253,6 @@ Note: This helper is very useful when you need to run third-party tools and want
     ...
 ```
 ### childProcess.execFile
-This is a simple helper thats uses child_procces.exec and do some outputs to terminal like errors succes and realtime stdout.
+This is a simple helper thats uses child_process.exec and do some outputs to terminal like errors succes and realtime stdout.
 
 ** similar to childProcess.shellExec **
