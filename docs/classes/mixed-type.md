@@ -73,9 +73,8 @@ ___
 
 ### variadic
 
-▸ **variadic**(): [*default*](default.md)[]
-
+▸ **variadic**()
 Handles Variadic Array
 
-**Returns:** [*default*](default.md)[]
+**Returns:** Variadic Array
 
