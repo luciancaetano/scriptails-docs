@@ -33,3 +33,6 @@ Flexible ascii progress bar.
 A curses-like library with a high level terminal interface API for node.js.
 
 [https://www.npmjs.com/package/blessed](https://www.npmjs.com/package/blessed)
+
+## Finding more libs ?
+See more libraries listing in [https://github.com/sindresorhus/awesome-nodejs#command-line-utilities](https://github.com/sindresorhus/awesome-nodejs#command-line-utilities)
